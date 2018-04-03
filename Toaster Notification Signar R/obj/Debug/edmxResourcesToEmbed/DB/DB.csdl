@@ -1,0 +1,1440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SignalRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SignalREntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActivityLogs" EntityType="SignalRModel.ActivityLog" />
+    <EntitySet Name="Banks" EntityType="SignalRModel.Bank" />
+    <EntitySet Name="BankBranches" EntityType="SignalRModel.BankBranch" />
+    <EntitySet Name="Cities" EntityType="SignalRModel.City" />
+    <EntitySet Name="ComisionTypes" EntityType="SignalRModel.ComisionType" />
+    <EntitySet Name="Countries" EntityType="SignalRModel.Country" />
+    <EntitySet Name="Departments" EntityType="SignalRModel.Department" />
+    <EntitySet Name="Devices" EntityType="SignalRModel.Device" />
+    <EntitySet Name="EmailLogs" EntityType="SignalRModel.EmailLog" />
+    <EntitySet Name="EmailServers" EntityType="SignalRModel.EmailServer" />
+    <EntitySet Name="ErrorLogs" EntityType="SignalRModel.ErrorLog" />
+    <EntitySet Name="Heartbeats" EntityType="SignalRModel.Heartbeat" />
+    <EntitySet Name="Languages" EntityType="SignalRModel.Language" />
+    <EntitySet Name="Locations" EntityType="SignalRModel.Location" />
+    <EntitySet Name="Modules" EntityType="SignalRModel.Module" />
+    <EntitySet Name="ModulePermissions" EntityType="SignalRModel.ModulePermission" />
+    <EntitySet Name="NetworkTypes" EntityType="SignalRModel.NetworkType" />
+    <EntitySet Name="Notifications" EntityType="SignalRModel.Notification" />
+    <EntitySet Name="PaymentMethods" EntityType="SignalRModel.PaymentMethod" />
+    <EntitySet Name="Provinces" EntityType="SignalRModel.Province" />
+    <EntitySet Name="RoleModulePermissions" EntityType="SignalRModel.RoleModulePermission" />
+    <EntitySet Name="SecurityQuestions" EntityType="SignalRModel.SecurityQuestion" />
+    <EntitySet Name="Services" EntityType="SignalRModel.Service" />
+    <EntitySet Name="ServiceVendors" EntityType="SignalRModel.ServiceVendor" />
+    <EntitySet Name="StackAlerts" EntityType="SignalRModel.StackAlert" />
+    <EntitySet Name="Tasks" EntityType="SignalRModel.Task" />
+    <EntitySet Name="TaskLogs" EntityType="SignalRModel.TaskLog" />
+    <EntitySet Name="TaskStatus" EntityType="SignalRModel.TaskStatu" />
+    <EntitySet Name="Terminals" EntityType="SignalRModel.Terminal" />
+    <EntitySet Name="TerminalLanguages" EntityType="SignalRModel.TerminalLanguage" />
+    <EntitySet Name="TerminalServices" EntityType="SignalRModel.TerminalService" />
+    <EntitySet Name="TerminalServiceComisions" EntityType="SignalRModel.TerminalServiceComision" />
+    <EntitySet Name="TerminalServiceVendors" EntityType="SignalRModel.TerminalServiceVendor" />
+    <EntitySet Name="TerminalStatus" EntityType="SignalRModel.TerminalStatu" />
+    <EntitySet Name="Transactions" EntityType="SignalRModel.Transaction" />
+    <EntitySet Name="TransactionDetails" EntityType="SignalRModel.TransactionDetail" />
+    <EntitySet Name="TransactionHistories" EntityType="SignalRModel.TransactionHistory" />
+    <EntitySet Name="TransactionStatus" EntityType="SignalRModel.TransactionStatu" />
+    <EntitySet Name="Users" EntityType="SignalRModel.User" />
+    <EntitySet Name="UserManagers" EntityType="SignalRModel.UserManager" />
+    <EntitySet Name="UserRoles" EntityType="SignalRModel.UserRole" />
+    <EntitySet Name="VendorBalances" EntityType="SignalRModel.VendorBalance" />
+    <EntitySet Name="Zones" EntityType="SignalRModel.Zone" />
+    <AssociationSet Name="FK_BankBranches_Banks" Association="SignalRModel.FK_BankBranches_Banks">
+      <End Role="Bank" EntitySet="Banks" />
+      <End Role="BankBranch" EntitySet="BankBranches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Banks_Banks" Association="SignalRModel.FK_Banks_Banks">
+      <End Role="Bank" EntitySet="Banks" />
+      <End Role="Bank1" EntitySet="Banks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_BankBranches" Association="SignalRModel.FK_Tasks_BankBranches">
+      <End Role="BankBranch" EntitySet="BankBranches" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_City" Association="SignalRModel.FK_Terminal_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Terminal" EntitySet="Terminals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalServiceComision_ComisionType" Association="SignalRModel.FK_TerminalServiceComision_ComisionType">
+      <End Role="ComisionType" EntitySet="ComisionTypes" />
+      <End Role="TerminalServiceComision" EntitySet="TerminalServiceComisions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_Country" Association="SignalRModel.FK_Terminal_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Terminal" EntitySet="Terminals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Department" Association="SignalRModel.FK_User_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Heartbeat_Terminal" Association="SignalRModel.FK_Heartbeat_Terminal">
+      <End Role="Terminal" EntitySet="Terminals" />
+      <End Role="Heartbeat" EntitySet="Heartbeats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalLanguage_Language" Association="SignalRModel.FK_TerminalLanguage_Language">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="TerminalLanguage" EntitySet="TerminalLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_Location" Association="SignalRModel.FK_Terminal_Location">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="Terminal" EntitySet="Terminals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModulePermission_Module" Association="SignalRModel.FK_ModulePermission_Module">
+      <End Role="Module" EntitySet="Modules" />
+      <End Role="ModulePermission" EntitySet="ModulePermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleModulePermission_ModulePermission" Association="SignalRModel.FK_RoleModulePermission_ModulePermission">
+      <End Role="ModulePermission" EntitySet="ModulePermissions" />
+      <End Role="RoleModulePermission" EntitySet="RoleModulePermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaction_PaymentMethod" Association="SignalRModel.FK_Transaction_PaymentMethod">
+      <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+      <End Role="Transaction" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_Province" Association="SignalRModel.FK_Terminal_Province">
+      <End Role="Province" EntitySet="Provinces" />
+      <End Role="Terminal" EntitySet="Terminals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleModulePermission_UserRole" Association="SignalRModel.FK_RoleModulePermission_UserRole">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="RoleModulePermission" EntitySet="RoleModulePermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_SecurityQuestion" Association="SignalRModel.FK_User_SecurityQuestion">
+      <End Role="SecurityQuestion" EntitySet="SecurityQuestions" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceVendors_Services" Association="SignalRModel.FK_ServiceVendors_Services">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="ServiceVendor" EntitySet="ServiceVendors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalServices_Services" Association="SignalRModel.FK_TerminalServices_Services">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="TerminalService" EntitySet="TerminalServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalServiceVendor_ServiceVendor" Association="SignalRModel.FK_TerminalServiceVendor_ServiceVendor">
+      <End Role="ServiceVendor" EntitySet="ServiceVendors" />
+      <End Role="TerminalServiceVendor" EntitySet="TerminalServiceVendors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaction_ServiceVendor" Association="SignalRModel.FK_Transaction_ServiceVendor">
+      <End Role="ServiceVendor" EntitySet="ServiceVendors" />
+      <End Role="Transaction" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VendorBalance_ServiceVendor" Association="SignalRModel.FK_VendorBalance_ServiceVendor">
+      <End Role="ServiceVendor" EntitySet="ServiceVendors" />
+      <End Role="VendorBalance" EntitySet="VendorBalances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_StackAlert" Association="SignalRModel.FK_Terminal_StackAlert">
+      <End Role="StackAlert" EntitySet="StackAlerts" />
+      <End Role="Terminal" EntitySet="Terminals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskLogs_Tasks" Association="SignalRModel.FK_TaskLogs_Tasks">
+      <End Role="Task" EntitySet="Tasks" />
+      <End Role="TaskLog" EntitySet="TaskLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_TaskStatus" Association="SignalRModel.FK_Tasks_TaskStatus">
+      <End Role="TaskStatu" EntitySet="TaskStatus" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Terminal" Association="SignalRModel.FK_Tasks_Terminal">
+      <End Role="Terminal" EntitySet="Terminals" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Users" Association="SignalRModel.FK_Tasks_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskLogs_TaskStatus" Association="SignalRModel.FK_TaskLogs_TaskStatus">
+      <End Role="TaskStatu" EntitySet="TaskStatus" />
+      <End Role="TaskLog" EntitySet="TaskLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_TerminalStatus" Association="SignalRModel.FK_Terminal_TerminalStatus">
+      <End Role="TerminalStatu" EntitySet="TerminalStatus" />
+      <End Role="Terminal" EntitySet="Terminals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_Zone" Association="SignalRModel.FK_Terminal_Zone">
+      <End Role="Zone" EntitySet="Zones" />
+      <End Role="Terminal" EntitySet="Terminals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalLanguage_Terminal" Association="SignalRModel.FK_TerminalLanguage_Terminal">
+      <End Role="Terminal" EntitySet="Terminals" />
+      <End Role="TerminalLanguage" EntitySet="TerminalLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalServices_Terminal" Association="SignalRModel.FK_TerminalServices_Terminal">
+      <End Role="Terminal" EntitySet="Terminals" />
+      <End Role="TerminalService" EntitySet="TerminalServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaction_Terminal" Association="SignalRModel.FK_Transaction_Terminal">
+      <End Role="Terminal" EntitySet="Terminals" />
+      <End Role="Transaction" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalServiceVendors_TerminalServices" Association="SignalRModel.FK_TerminalServiceVendors_TerminalServices">
+      <End Role="TerminalService" EntitySet="TerminalServices" />
+      <End Role="TerminalServiceVendor" EntitySet="TerminalServiceVendors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalServiceComision_TerminalServiceVendor" Association="SignalRModel.FK_TerminalServiceComision_TerminalServiceVendor">
+      <End Role="TerminalServiceVendor" EntitySet="TerminalServiceVendors" />
+      <End Role="TerminalServiceComision" EntitySet="TerminalServiceComisions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TransactionDetail_Transaction" Association="SignalRModel.FK_TransactionDetail_Transaction">
+      <End Role="Transaction" EntitySet="Transactions" />
+      <End Role="TransactionDetail" EntitySet="TransactionDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TransactionHistory_TransactionHistory" Association="SignalRModel.FK_TransactionHistory_TransactionHistory">
+      <End Role="Transaction" EntitySet="Transactions" />
+      <End Role="TransactionHistory" EntitySet="TransactionHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserRole" Association="SignalRModel.FK_User_UserRole">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Zone" Association="SignalRModel.FK_User_Zone">
+      <End Role="Zone" EntitySet="Zones" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserManager_User" Association="SignalRModel.FK_UserManager_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserManager" EntitySet="UserManagers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserManager_User1" Association="SignalRModel.FK_UserManager_User1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserManager" EntitySet="UserManagers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ActivityLog">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TerminalID" Type="Int32" Nullable="false" />
+    <Property Name="EventTypeId" Type="Int32" />
+    <Property Name="FormId" Type="Int32" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="AddDate" Type="DateTime" Precision="3" />
+    <Property Name="SyncDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Bank">
+    <Key>
+      <PropertyRef Name="BankId" />
+    </Key>
+    <Property Name="BankId" Type="Int32" Nullable="false" />
+    <Property Name="BankName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="BankBranches" Relationship="SignalRModel.FK_BankBranches_Banks" FromRole="Bank" ToRole="BankBranch" />
+    <NavigationProperty Name="Bank1" Relationship="SignalRModel.FK_Banks_Banks" FromRole="Bank" ToRole="Bank1" />
+    <NavigationProperty Name="Bank2" Relationship="SignalRModel.FK_Banks_Banks" FromRole="Bank1" ToRole="Bank" />
+  </EntityType>
+  <EntityType Name="BankBranch">
+    <Key>
+      <PropertyRef Name="BranchId" />
+    </Key>
+    <Property Name="BranchId" Type="Int32" Nullable="false" />
+    <Property Name="BankId" Type="Int32" Nullable="false" />
+    <Property Name="BranchName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="Bank" Relationship="SignalRModel.FK_BankBranches_Banks" FromRole="BankBranch" ToRole="Bank" />
+    <NavigationProperty Name="Tasks" Relationship="SignalRModel.FK_Tasks_BankBranches" FromRole="BankBranch" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <Property Name="CityName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProvinceId" Type="Int32" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="Terminals" Relationship="SignalRModel.FK_Terminal_City" FromRole="City" ToRole="Terminal" />
+  </EntityType>
+  <EntityType Name="ComisionType">
+    <Key>
+      <PropertyRef Name="ComisionTypeId" />
+    </Key>
+    <Property Name="ComisionTypeId" Type="Int32" Nullable="false" />
+    <Property Name="ComisionTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="TerminalServiceComisions" Relationship="SignalRModel.FK_TerminalServiceComision_ComisionType" FromRole="ComisionType" ToRole="TerminalServiceComision" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="CountryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="Terminals" Relationship="SignalRModel.FK_Terminal_Country" FromRole="Country" ToRole="Terminal" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DeptId" />
+    </Key>
+    <Property Name="DeptId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeptName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="Users" Relationship="SignalRModel.FK_User_Department" FromRole="Department" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="DeviceId" />
+    </Key>
+    <Property Name="DeviceId" Type="Int32" Nullable="false" />
+    <Property Name="DeviceName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EmailLog">
+    <Key>
+      <PropertyRef Name="EmailLogId" />
+    </Key>
+    <Property Name="EmailLogId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="To" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BCC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Subject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SentStatus" Type="Byte" Nullable="false" />
+    <Property Name="EnterDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UnSentReason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailType" Type="Byte" Nullable="false" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="EmailServer">
+    <Key>
+      <PropertyRef Name="ServerId" />
+    </Key>
+    <Property Name="ServerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServerName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ServerIP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EmailPort" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserPswd" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UseDefaultCredentials" Type="Boolean" Nullable="false" />
+    <Property Name="EnableSSL" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Priority" Type="Byte" />
+    <Property Name="AddDate" Type="DateTime" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="ErrorID" />
+    </Key>
+    <Property Name="ErrorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ErrorCode" Type="Int32" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TerminalID" Type="Int32" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Precision="3" />
+    <Property Name="SyncDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Heartbeat">
+    <Key>
+      <PropertyRef Name="HeartbeatId" />
+    </Key>
+    <Property Name="HeartbeatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TerminalId" Type="Int32" Nullable="false" />
+    <Property Name="HeartbeatTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Terminal" Relationship="SignalRModel.FK_Heartbeat_Terminal" FromRole="Heartbeat" ToRole="Terminal" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="LanguageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="TerminalLanguages" Relationship="SignalRModel.FK_TerminalLanguage_Language" FromRole="Language" ToRole="TerminalLanguage" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="Int32" Nullable="false" />
+    <Property Name="LocationName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ZoneId" Type="Int32" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="Terminals" Relationship="SignalRModel.FK_Terminal_Location" FromRole="Location" ToRole="Terminal" />
+  </EntityType>
+  <EntityType Name="Module">
+    <Key>
+      <PropertyRef Name="ModuleId" />
+    </Key>
+    <Property Name="ModuleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="ModulePermissions" Relationship="SignalRModel.FK_ModulePermission_Module" FromRole="Module" ToRole="ModulePermission" />
+  </EntityType>
+  <EntityType Name="ModulePermission">
+    <Key>
+      <PropertyRef Name="ModulePermissionId" />
+    </Key>
+    <Property Name="ModulePermissionId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PermissionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModuleId" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="Module" Relationship="SignalRModel.FK_ModulePermission_Module" FromRole="ModulePermission" ToRole="Module" />
+    <NavigationProperty Name="RoleModulePermissions" Relationship="SignalRModel.FK_RoleModulePermission_ModulePermission" FromRole="ModulePermission" ToRole="RoleModulePermission" />
+  </EntityType>
+  <EntityType Name="NetworkType">
+    <Key>
+      <PropertyRef Name="NetworkTypeID" />
+    </Key>
+    <Property Name="NetworkTypeID" Type="Int16" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="NotificationId" />
+    </Key>
+    <Property Name="NotificationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Notification1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NotificationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="PaymentMethodID" />
+    </Key>
+    <Property Name="PaymentMethodID" Type="Int16" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="AddDate" Type="DateTime" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="Transactions" Relationship="SignalRModel.FK_Transaction_PaymentMethod" FromRole="PaymentMethod" ToRole="Transaction" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="ProvinceId" />
+    </Key>
+    <Property Name="ProvinceId" Type="Int32" Nullable="false" />
+    <Property Name="ProvinceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="Terminals" Relationship="SignalRModel.FK_Terminal_Province" FromRole="Province" ToRole="Terminal" />
+  </EntityType>
+  <EntityType Name="RoleModulePermission">
+    <Key>
+      <PropertyRef Name="RoleModulePermissionId" />
+    </Key>
+    <Property Name="RoleModulePermissionId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int64" Nullable="false" />
+    <Property Name="ModulePermissionId" Type="Int64" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ModulePermission" Relationship="SignalRModel.FK_RoleModulePermission_ModulePermission" FromRole="RoleModulePermission" ToRole="ModulePermission" />
+    <NavigationProperty Name="UserRole" Relationship="SignalRModel.FK_RoleModulePermission_UserRole" FromRole="RoleModulePermission" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="SecurityQuestion">
+    <Key>
+      <PropertyRef Name="SecurityQuestionId" />
+    </Key>
+    <Property Name="SecurityQuestionId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Question" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="Users" Relationship="SignalRModel.FK_User_SecurityQuestion" FromRole="SecurityQuestion" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="Int32" Nullable="false" />
+    <Property Name="ServiceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="ServiceVendors" Relationship="SignalRModel.FK_ServiceVendors_Services" FromRole="Service" ToRole="ServiceVendor" />
+    <NavigationProperty Name="TerminalServices" Relationship="SignalRModel.FK_TerminalServices_Services" FromRole="Service" ToRole="TerminalService" />
+  </EntityType>
+  <EntityType Name="ServiceVendor">
+    <Key>
+      <PropertyRef Name="ServiceVendorId" />
+    </Key>
+    <Property Name="ServiceVendorId" Type="Int32" Nullable="false" />
+    <Property Name="ServiceId" Type="Int32" Nullable="false" />
+    <Property Name="ServiceVendorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="Service" Relationship="SignalRModel.FK_ServiceVendors_Services" FromRole="ServiceVendor" ToRole="Service" />
+    <NavigationProperty Name="TerminalServiceVendors" Relationship="SignalRModel.FK_TerminalServiceVendor_ServiceVendor" FromRole="ServiceVendor" ToRole="TerminalServiceVendor" />
+    <NavigationProperty Name="Transactions" Relationship="SignalRModel.FK_Transaction_ServiceVendor" FromRole="ServiceVendor" ToRole="Transaction" />
+    <NavigationProperty Name="VendorBalances" Relationship="SignalRModel.FK_VendorBalance_ServiceVendor" FromRole="ServiceVendor" ToRole="VendorBalance" />
+  </EntityType>
+  <EntityType Name="StackAlert">
+    <Key>
+      <PropertyRef Name="StackAlertId" />
+    </Key>
+    <Property Name="StackAlertId" Type="Int32" Nullable="false" />
+    <Property Name="StackAlertName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="Terminals" Relationship="SignalRModel.FK_Terminal_StackAlert" FromRole="StackAlert" ToRole="Terminal" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="TerminalId" Type="Int32" Nullable="false" />
+    <Property Name="StatusId" Type="Int32" Nullable="false" />
+    <Property Name="BranchId" Type="Int32" Nullable="false" />
+    <Property Name="AssignedDate" Type="DateTime" Precision="3" />
+    <Property Name="RecoveredDate" Type="DateTime" Precision="3" />
+    <Property Name="DepositedDate" Type="DateTime" Precision="3" />
+    <Property Name="TotalAmount" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="BankBranch" Relationship="SignalRModel.FK_Tasks_BankBranches" FromRole="Task" ToRole="BankBranch" />
+    <NavigationProperty Name="TaskLogs" Relationship="SignalRModel.FK_TaskLogs_Tasks" FromRole="Task" ToRole="TaskLog" />
+    <NavigationProperty Name="TaskStatu" Relationship="SignalRModel.FK_Tasks_TaskStatus" FromRole="Task" ToRole="TaskStatu" />
+    <NavigationProperty Name="Terminal" Relationship="SignalRModel.FK_Tasks_Terminal" FromRole="Task" ToRole="Terminal" />
+    <NavigationProperty Name="User" Relationship="SignalRModel.FK_Tasks_Users" FromRole="Task" ToRole="User" />
+  </EntityType>
+  <EntityType Name="TaskLog">
+    <Key>
+      <PropertyRef Name="TaskLogId" />
+    </Key>
+    <Property Name="TaskLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskId" Type="Int32" Nullable="false" />
+    <Property Name="StatusId" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Task" Relationship="SignalRModel.FK_TaskLogs_Tasks" FromRole="TaskLog" ToRole="Task" />
+    <NavigationProperty Name="TaskStatu" Relationship="SignalRModel.FK_TaskLogs_TaskStatus" FromRole="TaskLog" ToRole="TaskStatu" />
+  </EntityType>
+  <EntityType Name="TaskStatu">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="Int32" Nullable="false" />
+    <Property Name="StatusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="Tasks" Relationship="SignalRModel.FK_Tasks_TaskStatus" FromRole="TaskStatu" ToRole="Task" />
+    <NavigationProperty Name="TaskLogs" Relationship="SignalRModel.FK_TaskLogs_TaskStatus" FromRole="TaskStatu" ToRole="TaskLog" />
+  </EntityType>
+  <EntityType Name="Terminal">
+    <Key>
+      <PropertyRef Name="TerminalID" />
+    </Key>
+    <Property Name="TerminalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TerminalName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ZoneId" Type="Int32" Nullable="false" />
+    <Property Name="LocationId" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <Property Name="ProvinceId" Type="Int32" Nullable="false" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="TerminalStatusId" Type="Int32" />
+    <Property Name="NoteStackAlertId" Type="Int32" Nullable="false" />
+    <Property Name="StackedNotesLimit" Type="Int32" />
+    <Property Name="AddDate" Type="DateTime" Precision="3" />
+    <Property Name="Postpaid" Type="Boolean" Nullable="false" />
+    <Property Name="Prepaid" Type="Boolean" Nullable="false" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="City" Relationship="SignalRModel.FK_Terminal_City" FromRole="Terminal" ToRole="City" />
+    <NavigationProperty Name="Country" Relationship="SignalRModel.FK_Terminal_Country" FromRole="Terminal" ToRole="Country" />
+    <NavigationProperty Name="Heartbeats" Relationship="SignalRModel.FK_Heartbeat_Terminal" FromRole="Terminal" ToRole="Heartbeat" />
+    <NavigationProperty Name="Location" Relationship="SignalRModel.FK_Terminal_Location" FromRole="Terminal" ToRole="Location" />
+    <NavigationProperty Name="Province" Relationship="SignalRModel.FK_Terminal_Province" FromRole="Terminal" ToRole="Province" />
+    <NavigationProperty Name="StackAlert" Relationship="SignalRModel.FK_Terminal_StackAlert" FromRole="Terminal" ToRole="StackAlert" />
+    <NavigationProperty Name="Tasks" Relationship="SignalRModel.FK_Tasks_Terminal" FromRole="Terminal" ToRole="Task" />
+    <NavigationProperty Name="TerminalStatu" Relationship="SignalRModel.FK_Terminal_TerminalStatus" FromRole="Terminal" ToRole="TerminalStatu" />
+    <NavigationProperty Name="Zone" Relationship="SignalRModel.FK_Terminal_Zone" FromRole="Terminal" ToRole="Zone" />
+    <NavigationProperty Name="TerminalLanguages" Relationship="SignalRModel.FK_TerminalLanguage_Terminal" FromRole="Terminal" ToRole="TerminalLanguage" />
+    <NavigationProperty Name="TerminalServices" Relationship="SignalRModel.FK_TerminalServices_Terminal" FromRole="Terminal" ToRole="TerminalService" />
+    <NavigationProperty Name="Transactions" Relationship="SignalRModel.FK_Transaction_Terminal" FromRole="Terminal" ToRole="Transaction" />
+  </EntityType>
+  <EntityType Name="TerminalLanguage">
+    <Key>
+      <PropertyRef Name="TerminalLanguageId" />
+    </Key>
+    <Property Name="TerminalLanguageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TerminalId" Type="Int32" Nullable="false" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Language" Relationship="SignalRModel.FK_TerminalLanguage_Language" FromRole="TerminalLanguage" ToRole="Language" />
+    <NavigationProperty Name="Terminal" Relationship="SignalRModel.FK_TerminalLanguage_Terminal" FromRole="TerminalLanguage" ToRole="Terminal" />
+  </EntityType>
+  <EntityType Name="TerminalService">
+    <Key>
+      <PropertyRef Name="TerminalServiceID" />
+    </Key>
+    <Property Name="TerminalServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceID" Type="Int32" Nullable="false" />
+    <Property Name="TerminalID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Service" Relationship="SignalRModel.FK_TerminalServices_Services" FromRole="TerminalService" ToRole="Service" />
+    <NavigationProperty Name="Terminal" Relationship="SignalRModel.FK_TerminalServices_Terminal" FromRole="TerminalService" ToRole="Terminal" />
+    <NavigationProperty Name="TerminalServiceVendors" Relationship="SignalRModel.FK_TerminalServiceVendors_TerminalServices" FromRole="TerminalService" ToRole="TerminalServiceVendor" />
+  </EntityType>
+  <EntityType Name="TerminalServiceComision">
+    <Key>
+      <PropertyRef Name="TerminalServiceComisionId" />
+    </Key>
+    <Property Name="TerminalServiceComisionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TerminalServiceVendorId" Type="Int32" Nullable="false" />
+    <Property Name="StartPrice" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+    <Property Name="EndPrice" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+    <Property Name="ComisionTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Comision" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ComisionType" Relationship="SignalRModel.FK_TerminalServiceComision_ComisionType" FromRole="TerminalServiceComision" ToRole="ComisionType" />
+    <NavigationProperty Name="TerminalServiceVendor" Relationship="SignalRModel.FK_TerminalServiceComision_TerminalServiceVendor" FromRole="TerminalServiceComision" ToRole="TerminalServiceVendor" />
+  </EntityType>
+  <EntityType Name="TerminalServiceVendor">
+    <Key>
+      <PropertyRef Name="TerminalServiceVendorId" />
+    </Key>
+    <Property Name="TerminalServiceVendorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TerminalServiceId" Type="Int32" Nullable="false" />
+    <Property Name="ServiceVendorId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ServiceVendor" Relationship="SignalRModel.FK_TerminalServiceVendor_ServiceVendor" FromRole="TerminalServiceVendor" ToRole="ServiceVendor" />
+    <NavigationProperty Name="TerminalService" Relationship="SignalRModel.FK_TerminalServiceVendors_TerminalServices" FromRole="TerminalServiceVendor" ToRole="TerminalService" />
+    <NavigationProperty Name="TerminalServiceComisions" Relationship="SignalRModel.FK_TerminalServiceComision_TerminalServiceVendor" FromRole="TerminalServiceVendor" ToRole="TerminalServiceComision" />
+  </EntityType>
+  <EntityType Name="TerminalStatu">
+    <Key>
+      <PropertyRef Name="TerminalStatusId" />
+    </Key>
+    <Property Name="TerminalStatusId" Type="Int32" Nullable="false" />
+    <Property Name="TerminalStatusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="Terminals" Relationship="SignalRModel.FK_Terminal_TerminalStatus" FromRole="TerminalStatu" ToRole="Terminal" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TerminalId" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+    <Property Name="ServiceVendorId" Type="Int32" Nullable="false" />
+    <Property Name="MobileNumber" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+    <Property Name="Commision" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="StatusId" Type="Int32" Nullable="false" />
+    <Property Name="PaymentMethodId" Type="Int16" Nullable="false" />
+    <Property Name="IsPostpaid" Type="Boolean" Nullable="false" />
+    <Property Name="Response" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="RetryCount" Type="Byte" />
+    <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="AddDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="PaymentMethod" Relationship="SignalRModel.FK_Transaction_PaymentMethod" FromRole="Transaction" ToRole="PaymentMethod" />
+    <NavigationProperty Name="ServiceVendor" Relationship="SignalRModel.FK_Transaction_ServiceVendor" FromRole="Transaction" ToRole="ServiceVendor" />
+    <NavigationProperty Name="Terminal" Relationship="SignalRModel.FK_Transaction_Terminal" FromRole="Transaction" ToRole="Terminal" />
+    <NavigationProperty Name="TransactionDetails" Relationship="SignalRModel.FK_TransactionDetail_Transaction" FromRole="Transaction" ToRole="TransactionDetail" />
+    <NavigationProperty Name="TransactionHistories" Relationship="SignalRModel.FK_TransactionHistory_TransactionHistory" FromRole="Transaction" ToRole="TransactionHistory" />
+  </EntityType>
+  <EntityType Name="TransactionDetail">
+    <Key>
+      <PropertyRef Name="TransactionDetailID" />
+    </Key>
+    <Property Name="TransactionDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionID" Type="Int32" Nullable="false" />
+    <Property Name="Billvalue" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+    <Property Name="NoteInsertionDate" Type="DateTime" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Transaction" Relationship="SignalRModel.FK_TransactionDetail_Transaction" FromRole="TransactionDetail" ToRole="Transaction" />
+  </EntityType>
+  <EntityType Name="TransactionHistory">
+    <Key>
+      <PropertyRef Name="TransactionHistoryId" />
+    </Key>
+    <Property Name="TransactionHistoryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionId" Type="Int32" Nullable="false" />
+    <Property Name="TerminalId" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+    <Property Name="ServiceVendorId" Type="Int32" Nullable="false" />
+    <Property Name="MobileNumber" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+    <Property Name="Comision" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="StatusId" Type="Int32" Nullable="false" />
+    <Property Name="PaymentMethodId" Type="Int32" Nullable="false" />
+    <Property Name="IsPostpaid" Type="Boolean" Nullable="false" />
+    <Property Name="Response" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Transaction" Relationship="SignalRModel.FK_TransactionHistory_TransactionHistory" FromRole="TransactionHistory" ToRole="Transaction" />
+  </EntityType>
+  <EntityType Name="TransactionStatu">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="Int32" Nullable="false" />
+    <Property Name="StatusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int64" Nullable="false" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <Property Name="DeptId" Type="Int64" />
+    <Property Name="SecurityQuestionId" Type="Int64" />
+    <Property Name="SecurityAnswer" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="GenderId" Type="Int64" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="CNIC" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="EmailId" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="PIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PINHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsUserLocked" Type="Boolean" />
+    <Property Name="LockedDate" Type="DateTime" Precision="3" />
+    <Property Name="LockedReason" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsEmailConfirmed" Type="Boolean" />
+    <Property Name="EmailConfirmDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DeleteUserId" Type="Int64" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteReason" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceId" Type="Int32" Nullable="false" />
+    <Property Name="ZoneId" Type="Int32" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsNxbUser" Type="Boolean" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="Department" Relationship="SignalRModel.FK_User_Department" FromRole="User" ToRole="Department" />
+    <NavigationProperty Name="SecurityQuestion" Relationship="SignalRModel.FK_User_SecurityQuestion" FromRole="User" ToRole="SecurityQuestion" />
+    <NavigationProperty Name="Tasks" Relationship="SignalRModel.FK_Tasks_Users" FromRole="User" ToRole="Task" />
+    <NavigationProperty Name="UserRole" Relationship="SignalRModel.FK_User_UserRole" FromRole="User" ToRole="UserRole" />
+    <NavigationProperty Name="Zone" Relationship="SignalRModel.FK_User_Zone" FromRole="User" ToRole="Zone" />
+    <NavigationProperty Name="UserManagers" Relationship="SignalRModel.FK_UserManager_User" FromRole="User" ToRole="UserManager" />
+    <NavigationProperty Name="UserManagers1" Relationship="SignalRModel.FK_UserManager_User1" FromRole="User" ToRole="UserManager" />
+  </EntityType>
+  <EntityType Name="UserManager">
+    <Key>
+      <PropertyRef Name="UserManagerId" />
+    </Key>
+    <Property Name="UserManagerId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="ManagerId" Type="Int32" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="SignalRModel.FK_UserManager_User" FromRole="UserManager" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="SignalRModel.FK_UserManager_User1" FromRole="UserManager" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Rank" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="RoleModulePermissions" Relationship="SignalRModel.FK_RoleModulePermission_UserRole" FromRole="UserRole" ToRole="RoleModulePermission" />
+    <NavigationProperty Name="Users" Relationship="SignalRModel.FK_User_UserRole" FromRole="UserRole" ToRole="User" />
+  </EntityType>
+  <EntityType Name="VendorBalance">
+    <Key>
+      <PropertyRef Name="VendorBalanceId" />
+    </Key>
+    <Property Name="VendorBalanceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VendorId" Type="Int32" Nullable="false" />
+    <Property Name="LoadAmount" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+    <Property Name="ReceivedLoadAmount" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+    <Property Name="BalanceDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="ServiceVendor" Relationship="SignalRModel.FK_VendorBalance_ServiceVendor" FromRole="VendorBalance" ToRole="ServiceVendor" />
+  </EntityType>
+  <EntityType Name="Zone">
+    <Key>
+      <PropertyRef Name="ZoneId" />
+    </Key>
+    <Property Name="ZoneId" Type="Int32" Nullable="false" />
+    <Property Name="ZoneName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalStatusId" Type="Int32" />
+    <NavigationProperty Name="Terminals" Relationship="SignalRModel.FK_Terminal_Zone" FromRole="Zone" ToRole="Terminal" />
+    <NavigationProperty Name="Users" Relationship="SignalRModel.FK_User_Zone" FromRole="Zone" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_BankBranches_Banks">
+    <End Type="SignalRModel.Bank" Role="Bank" Multiplicity="1" />
+    <End Type="SignalRModel.BankBranch" Role="BankBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bank">
+        <PropertyRef Name="BankId" />
+      </Principal>
+      <Dependent Role="BankBranch">
+        <PropertyRef Name="BankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Banks_Banks">
+    <End Type="SignalRModel.Bank" Role="Bank" Multiplicity="1" />
+    <End Type="SignalRModel.Bank" Role="Bank1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Bank">
+        <PropertyRef Name="BankId" />
+      </Principal>
+      <Dependent Role="Bank1">
+        <PropertyRef Name="BankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_BankBranches">
+    <End Type="SignalRModel.BankBranch" Role="BankBranch" Multiplicity="1" />
+    <End Type="SignalRModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BankBranch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_City">
+    <End Type="SignalRModel.City" Role="City" Multiplicity="1" />
+    <End Type="SignalRModel.Terminal" Role="Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalServiceComision_ComisionType">
+    <End Type="SignalRModel.ComisionType" Role="ComisionType" Multiplicity="1" />
+    <End Type="SignalRModel.TerminalServiceComision" Role="TerminalServiceComision" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComisionType">
+        <PropertyRef Name="ComisionTypeId" />
+      </Principal>
+      <Dependent Role="TerminalServiceComision">
+        <PropertyRef Name="ComisionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_Country">
+    <End Type="SignalRModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="SignalRModel.Terminal" Role="Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Department">
+    <End Type="SignalRModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="SignalRModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DeptId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="DeptId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Heartbeat_Terminal">
+    <End Type="SignalRModel.Terminal" Role="Terminal" Multiplicity="1" />
+    <End Type="SignalRModel.Heartbeat" Role="Heartbeat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="TerminalID" />
+      </Principal>
+      <Dependent Role="Heartbeat">
+        <PropertyRef Name="TerminalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalLanguage_Language">
+    <End Type="SignalRModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="SignalRModel.TerminalLanguage" Role="TerminalLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="TerminalLanguage">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_Location">
+    <End Type="SignalRModel.Location" Role="Location" Multiplicity="1" />
+    <End Type="SignalRModel.Terminal" Role="Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModulePermission_Module">
+    <End Type="SignalRModel.Module" Role="Module" Multiplicity="1" />
+    <End Type="SignalRModel.ModulePermission" Role="ModulePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Module">
+        <PropertyRef Name="ModuleId" />
+      </Principal>
+      <Dependent Role="ModulePermission">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleModulePermission_ModulePermission">
+    <End Type="SignalRModel.ModulePermission" Role="ModulePermission" Multiplicity="1" />
+    <End Type="SignalRModel.RoleModulePermission" Role="RoleModulePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModulePermission">
+        <PropertyRef Name="ModulePermissionId" />
+      </Principal>
+      <Dependent Role="RoleModulePermission">
+        <PropertyRef Name="ModulePermissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaction_PaymentMethod">
+    <End Type="SignalRModel.PaymentMethod" Role="PaymentMethod" Multiplicity="1" />
+    <End Type="SignalRModel.Transaction" Role="Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="PaymentMethodID" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="PaymentMethodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_Province">
+    <End Type="SignalRModel.Province" Role="Province" Multiplicity="1" />
+    <End Type="SignalRModel.Terminal" Role="Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="ProvinceId" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleModulePermission_UserRole">
+    <End Type="SignalRModel.UserRole" Role="UserRole" Multiplicity="1" />
+    <End Type="SignalRModel.RoleModulePermission" Role="RoleModulePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="RoleModulePermission">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_SecurityQuestion">
+    <End Type="SignalRModel.SecurityQuestion" Role="SecurityQuestion" Multiplicity="0..1" />
+    <End Type="SignalRModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SecurityQuestion">
+        <PropertyRef Name="SecurityQuestionId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="SecurityQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceVendors_Services">
+    <End Type="SignalRModel.Service" Role="Service" Multiplicity="1" />
+    <End Type="SignalRModel.ServiceVendor" Role="ServiceVendor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ServiceID" />
+      </Principal>
+      <Dependent Role="ServiceVendor">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalServices_Services">
+    <End Type="SignalRModel.Service" Role="Service" Multiplicity="1" />
+    <End Type="SignalRModel.TerminalService" Role="TerminalService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ServiceID" />
+      </Principal>
+      <Dependent Role="TerminalService">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalServiceVendor_ServiceVendor">
+    <End Type="SignalRModel.ServiceVendor" Role="ServiceVendor" Multiplicity="1" />
+    <End Type="SignalRModel.TerminalServiceVendor" Role="TerminalServiceVendor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceVendor">
+        <PropertyRef Name="ServiceVendorId" />
+      </Principal>
+      <Dependent Role="TerminalServiceVendor">
+        <PropertyRef Name="ServiceVendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaction_ServiceVendor">
+    <End Type="SignalRModel.ServiceVendor" Role="ServiceVendor" Multiplicity="1" />
+    <End Type="SignalRModel.Transaction" Role="Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceVendor">
+        <PropertyRef Name="ServiceVendorId" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="ServiceVendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VendorBalance_ServiceVendor">
+    <End Type="SignalRModel.ServiceVendor" Role="ServiceVendor" Multiplicity="1" />
+    <End Type="SignalRModel.VendorBalance" Role="VendorBalance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceVendor">
+        <PropertyRef Name="ServiceVendorId" />
+      </Principal>
+      <Dependent Role="VendorBalance">
+        <PropertyRef Name="VendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_StackAlert">
+    <End Type="SignalRModel.StackAlert" Role="StackAlert" Multiplicity="1" />
+    <End Type="SignalRModel.Terminal" Role="Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StackAlert">
+        <PropertyRef Name="StackAlertId" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="NoteStackAlertId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskLogs_Tasks">
+    <End Type="SignalRModel.Task" Role="Task" Multiplicity="1" />
+    <End Type="SignalRModel.TaskLog" Role="TaskLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="TaskId" />
+      </Principal>
+      <Dependent Role="TaskLog">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_TaskStatus">
+    <End Type="SignalRModel.TaskStatu" Role="TaskStatu" Multiplicity="1" />
+    <End Type="SignalRModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskStatu">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Terminal">
+    <End Type="SignalRModel.Terminal" Role="Terminal" Multiplicity="1" />
+    <End Type="SignalRModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="TerminalID" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="TerminalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Users">
+    <End Type="SignalRModel.User" Role="User" Multiplicity="1" />
+    <End Type="SignalRModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskLogs_TaskStatus">
+    <End Type="SignalRModel.TaskStatu" Role="TaskStatu" Multiplicity="1" />
+    <End Type="SignalRModel.TaskLog" Role="TaskLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskStatu">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="TaskLog">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_TerminalStatus">
+    <End Type="SignalRModel.TerminalStatu" Role="TerminalStatu" Multiplicity="0..1" />
+    <End Type="SignalRModel.Terminal" Role="Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TerminalStatu">
+        <PropertyRef Name="TerminalStatusId" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="TerminalStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_Zone">
+    <End Type="SignalRModel.Zone" Role="Zone" Multiplicity="1" />
+    <End Type="SignalRModel.Terminal" Role="Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zone">
+        <PropertyRef Name="ZoneId" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="ZoneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalLanguage_Terminal">
+    <End Type="SignalRModel.Terminal" Role="Terminal" Multiplicity="1" />
+    <End Type="SignalRModel.TerminalLanguage" Role="TerminalLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="TerminalID" />
+      </Principal>
+      <Dependent Role="TerminalLanguage">
+        <PropertyRef Name="TerminalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalServices_Terminal">
+    <End Type="SignalRModel.Terminal" Role="Terminal" Multiplicity="1" />
+    <End Type="SignalRModel.TerminalService" Role="TerminalService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="TerminalID" />
+      </Principal>
+      <Dependent Role="TerminalService">
+        <PropertyRef Name="TerminalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaction_Terminal">
+    <End Type="SignalRModel.Terminal" Role="Terminal" Multiplicity="1" />
+    <End Type="SignalRModel.Transaction" Role="Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="TerminalID" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="TerminalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalServiceVendors_TerminalServices">
+    <End Type="SignalRModel.TerminalService" Role="TerminalService" Multiplicity="1" />
+    <End Type="SignalRModel.TerminalServiceVendor" Role="TerminalServiceVendor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TerminalService">
+        <PropertyRef Name="TerminalServiceID" />
+      </Principal>
+      <Dependent Role="TerminalServiceVendor">
+        <PropertyRef Name="TerminalServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalServiceComision_TerminalServiceVendor">
+    <End Type="SignalRModel.TerminalServiceVendor" Role="TerminalServiceVendor" Multiplicity="1" />
+    <End Type="SignalRModel.TerminalServiceComision" Role="TerminalServiceComision" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TerminalServiceVendor">
+        <PropertyRef Name="TerminalServiceVendorId" />
+      </Principal>
+      <Dependent Role="TerminalServiceComision">
+        <PropertyRef Name="TerminalServiceVendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TransactionDetail_Transaction">
+    <End Type="SignalRModel.Transaction" Role="Transaction" Multiplicity="1" />
+    <End Type="SignalRModel.TransactionDetail" Role="TransactionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaction">
+        <PropertyRef Name="TransactionId" />
+      </Principal>
+      <Dependent Role="TransactionDetail">
+        <PropertyRef Name="TransactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TransactionHistory_TransactionHistory">
+    <End Type="SignalRModel.Transaction" Role="Transaction" Multiplicity="1" />
+    <End Type="SignalRModel.TransactionHistory" Role="TransactionHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaction">
+        <PropertyRef Name="TransactionId" />
+      </Principal>
+      <Dependent Role="TransactionHistory">
+        <PropertyRef Name="TransactionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserRole">
+    <End Type="SignalRModel.UserRole" Role="UserRole" Multiplicity="1" />
+    <End Type="SignalRModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Zone">
+    <End Type="SignalRModel.Zone" Role="Zone" Multiplicity="1" />
+    <End Type="SignalRModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zone">
+        <PropertyRef Name="ZoneId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="ZoneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserManager_User">
+    <End Type="SignalRModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SignalRModel.UserManager" Role="UserManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserManager">
+        <PropertyRef Name="ManagerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserManager_User1">
+    <End Type="SignalRModel.User" Role="User" Multiplicity="1" />
+    <End Type="SignalRModel.UserManager" Role="UserManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserManager">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

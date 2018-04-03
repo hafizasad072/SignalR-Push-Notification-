@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c2db05f8147740afaaa5a6abb8f1a810" Name="Diagram1">
+        <EntityTypeShape EntityType="SignalRModel.ActivityLog" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="SignalRModel.Bank" Width="1.5" PointX="6.75" PointY="0.875" />
+        <EntityTypeShape EntityType="SignalRModel.BankBranch" Width="1.5" PointX="9" PointY="0.75" />
+        <EntityTypeShape EntityType="SignalRModel.City" Width="1.5" PointX="0.75" PointY="33.5" />
+        <EntityTypeShape EntityType="SignalRModel.ComisionType" Width="1.5" PointX="13.5" PointY="10.125" />
+        <EntityTypeShape EntityType="SignalRModel.Country" Width="1.5" PointX="0.75" PointY="26" />
+        <EntityTypeShape EntityType="SignalRModel.Department" Width="1.5" PointX="3.75" PointY="29.125" />
+        <EntityTypeShape EntityType="SignalRModel.Device" Width="1.5" PointX="2.75" PointY="0.875" />
+        <EntityTypeShape EntityType="SignalRModel.EmailLog" Width="1.5" PointX="2.75" PointY="4.875" />
+        <EntityTypeShape EntityType="SignalRModel.EmailServer" Width="1.5" PointX="15.75" PointY="0.875" />
+        <EntityTypeShape EntityType="SignalRModel.ErrorLog" Width="1.5" PointX="4.75" PointY="5.875" />
+        <EntityTypeShape EntityType="SignalRModel.Heartbeat" Width="1.5" PointX="5.25" PointY="40.375" />
+        <EntityTypeShape EntityType="SignalRModel.Language" Width="1.5" PointX="9" PointY="10" />
+        <EntityTypeShape EntityType="SignalRModel.Location" Width="1.5" PointX="0.75" PointY="29.625" />
+        <EntityTypeShape EntityType="SignalRModel.Module" Width="1.5" PointX="1.5" PointY="44" />
+        <EntityTypeShape EntityType="SignalRModel.ModulePermission" Width="1.5" PointX="3.75" PointY="43.875" />
+        <EntityTypeShape EntityType="SignalRModel.NetworkType" Width="1.5" PointX="11.75" PointY="0.875" />
+        <EntityTypeShape EntityType="SignalRModel.Notification" Width="1.5" PointX="15.75" PointY="6.875" />
+        <EntityTypeShape EntityType="SignalRModel.PaymentMethod" Width="1.5" PointX="6" PointY="25" />
+        <EntityTypeShape EntityType="SignalRModel.Province" Width="1.5" PointX="0.75" PointY="22.125" />
+        <EntityTypeShape EntityType="SignalRModel.RoleModulePermission" Width="1.5" PointX="6" PointY="29.25" />
+        <EntityTypeShape EntityType="SignalRModel.SecurityQuestion" Width="1.5" PointX="3.75" PointY="12" />
+        <EntityTypeShape EntityType="SignalRModel.Service" Width="1.5" PointX="6" PointY="9.875" />
+        <EntityTypeShape EntityType="SignalRModel.ServiceVendor" Width="1.5" PointX="11.25" PointY="7.5" />
+        <EntityTypeShape EntityType="SignalRModel.StackAlert" Width="1.5" PointX="0.75" PointY="12.25" />
+        <EntityTypeShape EntityType="SignalRModel.Task" Width="1.5" PointX="11.25" PointY="17" />
+        <EntityTypeShape EntityType="SignalRModel.TaskLog" Width="1.5" PointX="13.5" PointY="18.125" />
+        <EntityTypeShape EntityType="SignalRModel.TaskStatu" Width="1.5" PointX="9" PointY="5.875" />
+        <EntityTypeShape EntityType="SignalRModel.Terminal" Width="1.5" PointX="3" PointY="16" />
+        <EntityTypeShape EntityType="SignalRModel.TerminalLanguage" Width="1.5" PointX="11.25" PointY="13.125" />
+        <EntityTypeShape EntityType="SignalRModel.TerminalService" Width="1.5" PointX="8.25" PointY="14" />
+        <EntityTypeShape EntityType="SignalRModel.TerminalServiceComision" Width="1.5" PointX="15.75" PointY="13.875" />
+        <EntityTypeShape EntityType="SignalRModel.TerminalServiceVendor" Width="1.5" PointX="13.5" PointY="14" />
+        <EntityTypeShape EntityType="SignalRModel.TerminalStatu" Width="1.5" PointX="0.75" PointY="8.5" />
+        <EntityTypeShape EntityType="SignalRModel.Transaction" Width="1.5" PointX="8.25" PointY="22.25" />
+        <EntityTypeShape EntityType="SignalRModel.TransactionDetail" Width="1.5" PointX="10.5" PointY="23.75" />
+        <EntityTypeShape EntityType="SignalRModel.TransactionHistory" Width="1.5" PointX="10.5" PointY="27.125" />
+        <EntityTypeShape EntityType="SignalRModel.TransactionStatu" Width="1.5" PointX="15.75" PointY="9.875" />
+        <EntityTypeShape EntityType="SignalRModel.User" Width="1.5" PointX="6" PointY="15" />
+        <EntityTypeShape EntityType="SignalRModel.UserManager" Width="1.5" PointX="8.25" PointY="18.25" />
+        <EntityTypeShape EntityType="SignalRModel.UserRole" Width="1.5" PointX="3.75" PointY="24.875" />
+        <EntityTypeShape EntityType="SignalRModel.VendorBalance" Width="1.5" PointX="13.5" PointY="5.875" />
+        <EntityTypeShape EntityType="SignalRModel.Zone" Width="1.5" PointX="0.75" PointY="17.875" />
+        <AssociationConnector Association="SignalRModel.FK_BankBranches_Banks" />
+        <AssociationConnector Association="SignalRModel.FK_Banks_Banks" />
+        <AssociationConnector Association="SignalRModel.FK_Tasks_BankBranches" />
+        <AssociationConnector Association="SignalRModel.FK_Terminal_City" />
+        <AssociationConnector Association="SignalRModel.FK_TerminalServiceComision_ComisionType" />
+        <AssociationConnector Association="SignalRModel.FK_Terminal_Country" />
+        <AssociationConnector Association="SignalRModel.FK_User_Department" />
+        <AssociationConnector Association="SignalRModel.FK_Heartbeat_Terminal" />
+        <AssociationConnector Association="SignalRModel.FK_TerminalLanguage_Language" />
+        <AssociationConnector Association="SignalRModel.FK_Terminal_Location" />
+        <AssociationConnector Association="SignalRModel.FK_ModulePermission_Module" />
+        <AssociationConnector Association="SignalRModel.FK_RoleModulePermission_ModulePermission" />
+        <AssociationConnector Association="SignalRModel.FK_Transaction_PaymentMethod" />
+        <AssociationConnector Association="SignalRModel.FK_Terminal_Province" />
+        <AssociationConnector Association="SignalRModel.FK_RoleModulePermission_UserRole" />
+        <AssociationConnector Association="SignalRModel.FK_User_SecurityQuestion" />
+        <AssociationConnector Association="SignalRModel.FK_ServiceVendors_Services" />
+        <AssociationConnector Association="SignalRModel.FK_TerminalServices_Services" />
+        <AssociationConnector Association="SignalRModel.FK_TerminalServiceVendor_ServiceVendor" />
+        <AssociationConnector Association="SignalRModel.FK_Transaction_ServiceVendor" />
+        <AssociationConnector Association="SignalRModel.FK_VendorBalance_ServiceVendor" />
+        <AssociationConnector Association="SignalRModel.FK_Terminal_StackAlert" />
+        <AssociationConnector Association="SignalRModel.FK_TaskLogs_Tasks" />
+        <AssociationConnector Association="SignalRModel.FK_Tasks_TaskStatus" />
+        <AssociationConnector Association="SignalRModel.FK_Tasks_Terminal" />
+        <AssociationConnector Association="SignalRModel.FK_Tasks_Users" />
+        <AssociationConnector Association="SignalRModel.FK_TaskLogs_TaskStatus" />
+        <AssociationConnector Association="SignalRModel.FK_Terminal_TerminalStatus" />
+        <AssociationConnector Association="SignalRModel.FK_Terminal_Zone" />
+        <AssociationConnector Association="SignalRModel.FK_TerminalLanguage_Terminal" />
+        <AssociationConnector Association="SignalRModel.FK_TerminalServices_Terminal" />
+        <AssociationConnector Association="SignalRModel.FK_Transaction_Terminal" />
+        <AssociationConnector Association="SignalRModel.FK_TerminalServiceVendors_TerminalServices" />
+        <AssociationConnector Association="SignalRModel.FK_TerminalServiceComision_TerminalServiceVendor" />
+        <AssociationConnector Association="SignalRModel.FK_TransactionDetail_Transaction" />
+        <AssociationConnector Association="SignalRModel.FK_TransactionHistory_TransactionHistory" />
+        <AssociationConnector Association="SignalRModel.FK_User_UserRole" />
+        <AssociationConnector Association="SignalRModel.FK_User_Zone" />
+        <AssociationConnector Association="SignalRModel.FK_UserManager_User" />
+        <AssociationConnector Association="SignalRModel.FK_UserManager_User1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,1360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SignalRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ActivityLog">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TerminalID" Type="int" Nullable="false" />
+    <Property Name="EventTypeId" Type="int" />
+    <Property Name="FormId" Type="int" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" />
+    <Property Name="SyncDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Bank">
+    <Key>
+      <PropertyRef Name="BankId" />
+    </Key>
+    <Property Name="BankId" Type="int" Nullable="false" />
+    <Property Name="BankName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="BankBranch">
+    <Key>
+      <PropertyRef Name="BranchId" />
+    </Key>
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="BankId" Type="int" Nullable="false" />
+    <Property Name="BranchName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="200" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="int" Nullable="false" />
+    <Property Name="CityName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProvinceId" Type="int" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="ComisionType">
+    <Key>
+      <PropertyRef Name="ComisionTypeId" />
+    </Key>
+    <Property Name="ComisionTypeId" Type="int" Nullable="false" />
+    <Property Name="ComisionTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DeptId" />
+    </Key>
+    <Property Name="DeptId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeptName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="DeviceId" />
+    </Key>
+    <Property Name="DeviceId" Type="int" Nullable="false" />
+    <Property Name="DeviceName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="EmailLog">
+    <Key>
+      <PropertyRef Name="EmailLogId" />
+    </Key>
+    <Property Name="EmailLogId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="To" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CC" Type="varchar" MaxLength="50" />
+    <Property Name="BCC" Type="varchar" MaxLength="50" />
+    <Property Name="Subject" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Body" Type="varchar(max)" Nullable="false" />
+    <Property Name="SentStatus" Type="tinyint" Nullable="false" />
+    <Property Name="EnterDate" Type="datetime" Nullable="false" />
+    <Property Name="UnSentReason" Type="varchar" MaxLength="50" />
+    <Property Name="EmailType" Type="tinyint" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="EmailServer">
+    <Key>
+      <PropertyRef Name="ServerId" />
+    </Key>
+    <Property Name="ServerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServerName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ServerIP" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EmailPort" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserPswd" Type="varchar(max)" Nullable="false" />
+    <Property Name="UseDefaultCredentials" Type="bit" Nullable="false" />
+    <Property Name="EnableSSL" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Priority" Type="tinyint" />
+    <Property Name="AddDate" Type="datetime" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="ErrorID" />
+    </Key>
+    <Property Name="ErrorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ErrorCode" Type="int" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="TerminalID" Type="int" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" />
+    <Property Name="SyncDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Heartbeat">
+    <Key>
+      <PropertyRef Name="HeartbeatId" />
+    </Key>
+    <Property Name="HeartbeatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TerminalId" Type="int" Nullable="false" />
+    <Property Name="HeartbeatTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="LanguageName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="int" Nullable="false" />
+    <Property Name="LocationName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ZoneId" Type="int" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="Module">
+    <Key>
+      <PropertyRef Name="ModuleId" />
+    </Key>
+    <Property Name="ModuleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="ModulePermission">
+    <Key>
+      <PropertyRef Name="ModulePermissionId" />
+    </Key>
+    <Property Name="ModulePermissionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PermissionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModuleId" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="NetworkType">
+    <Key>
+      <PropertyRef Name="NetworkTypeID" />
+    </Key>
+    <Property Name="NetworkTypeID" Type="smallint" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="NotificationId" />
+    </Key>
+    <Property Name="NotificationId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+    <Property Name="Notification" Type="nvarchar(max)" />
+    <Property Name="NotificationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="PaymentMethodID" />
+    </Key>
+    <Property Name="PaymentMethodID" Type="smallint" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="AddDate" Type="datetime" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="ProvinceId" />
+    </Key>
+    <Property Name="ProvinceId" Type="int" Nullable="false" />
+    <Property Name="ProvinceName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="RoleModulePermission">
+    <Key>
+      <PropertyRef Name="RoleModulePermissionId" />
+    </Key>
+    <Property Name="RoleModulePermissionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleId" Type="bigint" Nullable="false" />
+    <Property Name="ModulePermissionId" Type="bigint" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SecurityQuestion">
+    <Key>
+      <PropertyRef Name="SecurityQuestionId" />
+    </Key>
+    <Property Name="SecurityQuestionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Question" Type="nvarchar" MaxLength="1024" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="int" Nullable="false" />
+    <Property Name="ServiceName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="ServiceVendor">
+    <Key>
+      <PropertyRef Name="ServiceVendorId" />
+    </Key>
+    <Property Name="ServiceVendorId" Type="int" Nullable="false" />
+    <Property Name="ServiceId" Type="int" Nullable="false" />
+    <Property Name="ServiceVendorName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="StackAlert">
+    <Key>
+      <PropertyRef Name="StackAlertId" />
+    </Key>
+    <Property Name="StackAlertId" Type="int" Nullable="false" />
+    <Property Name="StackAlertName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="TerminalId" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="AssignedDate" Type="datetime" />
+    <Property Name="RecoveredDate" Type="datetime" />
+    <Property Name="DepositedDate" Type="datetime" />
+    <Property Name="TotalAmount" Type="decimal" Precision="7" Scale="2" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="TaskLog">
+    <Key>
+      <PropertyRef Name="TaskLogId" />
+    </Key>
+    <Property Name="TaskLogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskId" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TaskStatus">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="StatusName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="Terminal">
+    <Key>
+      <PropertyRef Name="TerminalID" />
+    </Key>
+    <Property Name="TerminalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TerminalName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ZoneId" Type="int" Nullable="false" />
+    <Property Name="LocationId" Type="int" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="200" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+    <Property Name="ProvinceId" Type="int" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="TerminalStatusId" Type="int" />
+    <Property Name="NoteStackAlertId" Type="int" Nullable="false" />
+    <Property Name="StackedNotesLimit" Type="int" />
+    <Property Name="AddDate" Type="datetime" />
+    <Property Name="Postpaid" Type="bit" Nullable="false" />
+    <Property Name="Prepaid" Type="bit" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="TerminalLanguage">
+    <Key>
+      <PropertyRef Name="TerminalLanguageId" />
+    </Key>
+    <Property Name="TerminalLanguageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TerminalId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TerminalService">
+    <Key>
+      <PropertyRef Name="TerminalServiceID" />
+    </Key>
+    <Property Name="TerminalServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceID" Type="int" Nullable="false" />
+    <Property Name="TerminalID" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TerminalServiceComision">
+    <Key>
+      <PropertyRef Name="TerminalServiceComisionId" />
+    </Key>
+    <Property Name="TerminalServiceComisionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TerminalServiceVendorId" Type="int" Nullable="false" />
+    <Property Name="StartPrice" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+    <Property Name="EndPrice" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+    <Property Name="ComisionTypeId" Type="int" Nullable="false" />
+    <Property Name="Comision" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TerminalServiceVendor">
+    <Key>
+      <PropertyRef Name="TerminalServiceVendorId" />
+    </Key>
+    <Property Name="TerminalServiceVendorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TerminalServiceId" Type="int" Nullable="false" />
+    <Property Name="ServiceVendorId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TerminalStatus">
+    <Key>
+      <PropertyRef Name="TerminalStatusId" />
+    </Key>
+    <Property Name="TerminalStatusId" Type="int" Nullable="false" />
+    <Property Name="TerminalStatusName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TerminalId" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+    <Property Name="ServiceVendorId" Type="int" Nullable="false" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="14" Nullable="false" />
+    <Property Name="Commision" Type="decimal" Precision="7" Scale="2" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="PaymentMethodId" Type="smallint" Nullable="false" />
+    <Property Name="IsPostpaid" Type="bit" Nullable="false" />
+    <Property Name="Response" Type="nvarchar" MaxLength="1000" />
+    <Property Name="RetryCount" Type="tinyint" />
+    <Property Name="TransactionDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="AddDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TransactionDetail">
+    <Key>
+      <PropertyRef Name="TransactionDetailID" />
+    </Key>
+    <Property Name="TransactionDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionID" Type="int" Nullable="false" />
+    <Property Name="Billvalue" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+    <Property Name="NoteInsertionDate" Type="datetime" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TransactionHistory">
+    <Key>
+      <PropertyRef Name="TransactionHistoryId" />
+    </Key>
+    <Property Name="TransactionHistoryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionId" Type="int" Nullable="false" />
+    <Property Name="TerminalId" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+    <Property Name="ServiceVendorId" Type="int" Nullable="false" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="14" Nullable="false" />
+    <Property Name="Comision" Type="decimal" Precision="7" Scale="2" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="PaymentMethodId" Type="int" Nullable="false" />
+    <Property Name="IsPostpaid" Type="bit" Nullable="false" />
+    <Property Name="Response" Type="nvarchar" MaxLength="1000" />
+    <Property Name="TransactionDate" Type="datetime" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TransactionStatus">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="StatusName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="RoleId" Type="bigint" Nullable="false" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+    <Property Name="DeptId" Type="bigint" />
+    <Property Name="SecurityQuestionId" Type="bigint" />
+    <Property Name="SecurityAnswer" Type="varchar" MaxLength="1024" />
+    <Property Name="GenderId" Type="bigint" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="CNIC" Type="varchar" MaxLength="15" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="20" />
+    <Property Name="Address" Type="varchar" MaxLength="200" />
+    <Property Name="EmailId" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="PIN" Type="varchar(max)" />
+    <Property Name="PINHash" Type="varchar(max)" />
+    <Property Name="IsUserLocked" Type="bit" />
+    <Property Name="LockedDate" Type="datetime" />
+    <Property Name="LockedReason" Type="varchar" MaxLength="500" />
+    <Property Name="IsEmailConfirmed" Type="bit" />
+    <Property Name="EmailConfirmDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DeleteUserId" Type="bigint" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteReason" Type="varchar" MaxLength="500" />
+    <Property Name="DeviceId" Type="int" Nullable="false" />
+    <Property Name="ZoneId" Type="int" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsNxbUser" Type="bit" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="UserManager">
+    <Key>
+      <PropertyRef Name="UserManagerId" />
+    </Key>
+    <Property Name="UserManagerId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="ManagerId" Type="int" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rank" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="VendorBalance">
+    <Key>
+      <PropertyRef Name="VendorBalanceId" />
+    </Key>
+    <Property Name="VendorBalanceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VendorId" Type="int" Nullable="false" />
+    <Property Name="LoadAmount" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+    <Property Name="ReceivedLoadAmount" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+    <Property Name="BalanceDate" Type="datetime" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="Zone">
+    <Key>
+      <PropertyRef Name="ZoneId" />
+    </Key>
+    <Property Name="ZoneId" Type="int" Nullable="false" />
+    <Property Name="ZoneName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="ApprovalStatusId" Type="int" />
+  </EntityType>
+  <Association Name="FK_BankBranches_Banks">
+    <End Role="Bank" Type="Self.Bank" Multiplicity="1" />
+    <End Role="BankBranch" Type="Self.BankBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bank">
+        <PropertyRef Name="BankId" />
+      </Principal>
+      <Dependent Role="BankBranch">
+        <PropertyRef Name="BankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Banks_Banks">
+    <End Role="Bank" Type="Self.Bank" Multiplicity="1" />
+    <End Role="Bank1" Type="Self.Bank" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Bank">
+        <PropertyRef Name="BankId" />
+      </Principal>
+      <Dependent Role="Bank1">
+        <PropertyRef Name="BankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Heartbeat_Terminal">
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="1" />
+    <End Role="Heartbeat" Type="Self.Heartbeat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="TerminalID" />
+      </Principal>
+      <Dependent Role="Heartbeat">
+        <PropertyRef Name="TerminalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModulePermission_Module">
+    <End Role="Module" Type="Self.Module" Multiplicity="1" />
+    <End Role="ModulePermission" Type="Self.ModulePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Module">
+        <PropertyRef Name="ModuleId" />
+      </Principal>
+      <Dependent Role="ModulePermission">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleModulePermission_ModulePermission">
+    <End Role="ModulePermission" Type="Self.ModulePermission" Multiplicity="1" />
+    <End Role="RoleModulePermission" Type="Self.RoleModulePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModulePermission">
+        <PropertyRef Name="ModulePermissionId" />
+      </Principal>
+      <Dependent Role="RoleModulePermission">
+        <PropertyRef Name="ModulePermissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleModulePermission_UserRole">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+    <End Role="RoleModulePermission" Type="Self.RoleModulePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="RoleModulePermission">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceVendors_Services">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="ServiceVendor" Type="Self.ServiceVendor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ServiceID" />
+      </Principal>
+      <Dependent Role="ServiceVendor">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskLogs_Tasks">
+    <End Role="Task" Type="Self.Task" Multiplicity="1" />
+    <End Role="TaskLog" Type="Self.TaskLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="TaskId" />
+      </Principal>
+      <Dependent Role="TaskLog">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskLogs_TaskStatus">
+    <End Role="TaskStatus" Type="Self.TaskStatus" Multiplicity="1" />
+    <End Role="TaskLog" Type="Self.TaskLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskStatus">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="TaskLog">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_BankBranches">
+    <End Role="BankBranch" Type="Self.BankBranch" Multiplicity="1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BankBranch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_TaskStatus">
+    <End Role="TaskStatus" Type="Self.TaskStatus" Multiplicity="1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskStatus">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Terminal">
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="TerminalID" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="TerminalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Users">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_Location">
+    <End Role="Location" Type="Self.Location" Multiplicity="1" />
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_Province">
+    <End Role="Province" Type="Self.Province" Multiplicity="1" />
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="ProvinceId" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_StackAlert">
+    <End Role="StackAlert" Type="Self.StackAlert" Multiplicity="1" />
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StackAlert">
+        <PropertyRef Name="StackAlertId" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="NoteStackAlertId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_TerminalStatus">
+    <End Role="TerminalStatus" Type="Self.TerminalStatus" Multiplicity="0..1" />
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TerminalStatus">
+        <PropertyRef Name="TerminalStatusId" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="TerminalStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terminal_Zone">
+    <End Role="Zone" Type="Self.Zone" Multiplicity="1" />
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zone">
+        <PropertyRef Name="ZoneId" />
+      </Principal>
+      <Dependent Role="Terminal">
+        <PropertyRef Name="ZoneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalLanguage_Language">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="TerminalLanguage" Type="Self.TerminalLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="TerminalLanguage">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalLanguage_Terminal">
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="1" />
+    <End Role="TerminalLanguage" Type="Self.TerminalLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="TerminalID" />
+      </Principal>
+      <Dependent Role="TerminalLanguage">
+        <PropertyRef Name="TerminalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalServiceComision_ComisionType">
+    <End Role="ComisionType" Type="Self.ComisionType" Multiplicity="1" />
+    <End Role="TerminalServiceComision" Type="Self.TerminalServiceComision" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComisionType">
+        <PropertyRef Name="ComisionTypeId" />
+      </Principal>
+      <Dependent Role="TerminalServiceComision">
+        <PropertyRef Name="ComisionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalServiceComision_TerminalServiceVendor">
+    <End Role="TerminalServiceVendor" Type="Self.TerminalServiceVendor" Multiplicity="1" />
+    <End Role="TerminalServiceComision" Type="Self.TerminalServiceComision" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TerminalServiceVendor">
+        <PropertyRef Name="TerminalServiceVendorId" />
+      </Principal>
+      <Dependent Role="TerminalServiceComision">
+        <PropertyRef Name="TerminalServiceVendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalServices_Services">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="TerminalService" Type="Self.TerminalService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ServiceID" />
+      </Principal>
+      <Dependent Role="TerminalService">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalServices_Terminal">
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="1" />
+    <End Role="TerminalService" Type="Self.TerminalService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="TerminalID" />
+      </Principal>
+      <Dependent Role="TerminalService">
+        <PropertyRef Name="TerminalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalServiceVendor_ServiceVendor">
+    <End Role="ServiceVendor" Type="Self.ServiceVendor" Multiplicity="1" />
+    <End Role="TerminalServiceVendor" Type="Self.TerminalServiceVendor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceVendor">
+        <PropertyRef Name="ServiceVendorId" />
+      </Principal>
+      <Dependent Role="TerminalServiceVendor">
+        <PropertyRef Name="ServiceVendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TerminalServiceVendors_TerminalServices">
+    <End Role="TerminalService" Type="Self.TerminalService" Multiplicity="1" />
+    <End Role="TerminalServiceVendor" Type="Self.TerminalServiceVendor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TerminalService">
+        <PropertyRef Name="TerminalServiceID" />
+      </Principal>
+      <Dependent Role="TerminalServiceVendor">
+        <PropertyRef Name="TerminalServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaction_PaymentMethod">
+    <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="PaymentMethodID" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="PaymentMethodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaction_ServiceVendor">
+    <End Role="ServiceVendor" Type="Self.ServiceVendor" Multiplicity="1" />
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceVendor">
+        <PropertyRef Name="ServiceVendorId" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="ServiceVendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaction_Terminal">
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="1" />
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="TerminalID" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="TerminalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TransactionDetail_Transaction">
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="1" />
+    <End Role="TransactionDetail" Type="Self.TransactionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaction">
+        <PropertyRef Name="TransactionId" />
+      </Principal>
+      <Dependent Role="TransactionDetail">
+        <PropertyRef Name="TransactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TransactionHistory_TransactionHistory">
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="1" />
+    <End Role="TransactionHistory" Type="Self.TransactionHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaction">
+        <PropertyRef Name="TransactionId" />
+      </Principal>
+      <Dependent Role="TransactionHistory">
+        <PropertyRef Name="TransactionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DeptId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="DeptId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_SecurityQuestion">
+    <End Role="SecurityQuestion" Type="Self.SecurityQuestion" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SecurityQuestion">
+        <PropertyRef Name="SecurityQuestionId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="SecurityQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserRole">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Zone">
+    <End Role="Zone" Type="Self.Zone" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zone">
+        <PropertyRef Name="ZoneId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="ZoneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserManager_User">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserManager" Type="Self.UserManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserManager">
+        <PropertyRef Name="ManagerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserManager_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserManager" Type="Self.UserManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserManager">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VendorBalance_ServiceVendor">
+    <End Role="ServiceVendor" Type="Self.ServiceVendor" Multiplicity="1" />
+    <End Role="VendorBalance" Type="Self.VendorBalance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceVendor">
+        <PropertyRef Name="ServiceVendorId" />
+      </Principal>
+      <Dependent Role="VendorBalance">
+        <PropertyRef Name="VendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SignalRModelStoreContainer">
+    <EntitySet Name="ActivityLog" EntityType="Self.ActivityLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BankBranch" EntityType="Self.BankBranch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComisionType" EntityType="Self.ComisionType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Device" EntityType="Self.Device" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailLog" EntityType="Self.EmailLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailServer" EntityType="Self.EmailServer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Heartbeat" EntityType="Self.Heartbeat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Module" EntityType="Self.Module" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ModulePermission" EntityType="Self.ModulePermission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NetworkType" EntityType="Self.NetworkType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentMethod" EntityType="Self.PaymentMethod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleModulePermission" EntityType="Self.RoleModulePermission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SecurityQuestion" EntityType="Self.SecurityQuestion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceVendor" EntityType="Self.ServiceVendor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StackAlert" EntityType="Self.StackAlert" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Task" EntityType="Self.Task" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaskLog" EntityType="Self.TaskLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaskStatus" EntityType="Self.TaskStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Terminal" EntityType="Self.Terminal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TerminalLanguage" EntityType="Self.TerminalLanguage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TerminalService" EntityType="Self.TerminalService" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TerminalServiceComision" EntityType="Self.TerminalServiceComision" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TerminalServiceVendor" EntityType="Self.TerminalServiceVendor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TerminalStatus" EntityType="Self.TerminalStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionHistory" EntityType="Self.TransactionHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionStatus" EntityType="Self.TransactionStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserManager" EntityType="Self.UserManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VendorBalance" EntityType="Self.VendorBalance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zone" EntityType="Self.Zone" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BankBranches_Banks" Association="Self.FK_BankBranches_Banks">
+      <End Role="Bank" EntitySet="Bank" />
+      <End Role="BankBranch" EntitySet="BankBranch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Banks_Banks" Association="Self.FK_Banks_Banks">
+      <End Role="Bank" EntitySet="Bank" />
+      <End Role="Bank1" EntitySet="Bank" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Heartbeat_Terminal" Association="Self.FK_Heartbeat_Terminal">
+      <End Role="Terminal" EntitySet="Terminal" />
+      <End Role="Heartbeat" EntitySet="Heartbeat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModulePermission_Module" Association="Self.FK_ModulePermission_Module">
+      <End Role="Module" EntitySet="Module" />
+      <End Role="ModulePermission" EntitySet="ModulePermission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleModulePermission_ModulePermission" Association="Self.FK_RoleModulePermission_ModulePermission">
+      <End Role="ModulePermission" EntitySet="ModulePermission" />
+      <End Role="RoleModulePermission" EntitySet="RoleModulePermission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleModulePermission_UserRole" Association="Self.FK_RoleModulePermission_UserRole">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="RoleModulePermission" EntitySet="RoleModulePermission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceVendors_Services" Association="Self.FK_ServiceVendors_Services">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="ServiceVendor" EntitySet="ServiceVendor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskLogs_Tasks" Association="Self.FK_TaskLogs_Tasks">
+      <End Role="Task" EntitySet="Task" />
+      <End Role="TaskLog" EntitySet="TaskLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskLogs_TaskStatus" Association="Self.FK_TaskLogs_TaskStatus">
+      <End Role="TaskStatus" EntitySet="TaskStatus" />
+      <End Role="TaskLog" EntitySet="TaskLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_BankBranches" Association="Self.FK_Tasks_BankBranches">
+      <End Role="BankBranch" EntitySet="BankBranch" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_TaskStatus" Association="Self.FK_Tasks_TaskStatus">
+      <End Role="TaskStatus" EntitySet="TaskStatus" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Terminal" Association="Self.FK_Tasks_Terminal">
+      <End Role="Terminal" EntitySet="Terminal" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Users" Association="Self.FK_Tasks_Users">
+      <End Role="User" EntitySet="User" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_City" Association="Self.FK_Terminal_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Terminal" EntitySet="Terminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_Country" Association="Self.FK_Terminal_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Terminal" EntitySet="Terminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_Location" Association="Self.FK_Terminal_Location">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Terminal" EntitySet="Terminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_Province" Association="Self.FK_Terminal_Province">
+      <End Role="Province" EntitySet="Province" />
+      <End Role="Terminal" EntitySet="Terminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_StackAlert" Association="Self.FK_Terminal_StackAlert">
+      <End Role="StackAlert" EntitySet="StackAlert" />
+      <End Role="Terminal" EntitySet="Terminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_TerminalStatus" Association="Self.FK_Terminal_TerminalStatus">
+      <End Role="TerminalStatus" EntitySet="TerminalStatus" />
+      <End Role="Terminal" EntitySet="Terminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terminal_Zone" Association="Self.FK_Terminal_Zone">
+      <End Role="Zone" EntitySet="Zone" />
+      <End Role="Terminal" EntitySet="Terminal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalLanguage_Language" Association="Self.FK_TerminalLanguage_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="TerminalLanguage" EntitySet="TerminalLanguage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalLanguage_Terminal" Association="Self.FK_TerminalLanguage_Terminal">
+      <End Role="Terminal" EntitySet="Terminal" />
+      <End Role="TerminalLanguage" EntitySet="TerminalLanguage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalServiceComision_ComisionType" Association="Self.FK_TerminalServiceComision_ComisionType">
+      <End Role="ComisionType" EntitySet="ComisionType" />
+      <End Role="TerminalServiceComision" EntitySet="TerminalServiceComision" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalServiceComision_TerminalServiceVendor" Association="Self.FK_TerminalServiceComision_TerminalServiceVendor">
+      <End Role="TerminalServiceVendor" EntitySet="TerminalServiceVendor" />
+      <End Role="TerminalServiceComision" EntitySet="TerminalServiceComision" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalServices_Services" Association="Self.FK_TerminalServices_Services">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="TerminalService" EntitySet="TerminalService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalServices_Terminal" Association="Self.FK_TerminalServices_Terminal">
+      <End Role="Terminal" EntitySet="Terminal" />
+      <End Role="TerminalService" EntitySet="TerminalService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalServiceVendor_ServiceVendor" Association="Self.FK_TerminalServiceVendor_ServiceVendor">
+      <End Role="ServiceVendor" EntitySet="ServiceVendor" />
+      <End Role="TerminalServiceVendor" EntitySet="TerminalServiceVendor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TerminalServiceVendors_TerminalServices" Association="Self.FK_TerminalServiceVendors_TerminalServices">
+      <End Role="TerminalService" EntitySet="TerminalService" />
+      <End Role="TerminalServiceVendor" EntitySet="TerminalServiceVendor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaction_PaymentMethod" Association="Self.FK_Transaction_PaymentMethod">
+      <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+      <End Role="Transaction" EntitySet="Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaction_ServiceVendor" Association="Self.FK_Transaction_ServiceVendor">
+      <End Role="ServiceVendor" EntitySet="ServiceVendor" />
+      <End Role="Transaction" EntitySet="Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaction_Terminal" Association="Self.FK_Transaction_Terminal">
+      <End Role="Terminal" EntitySet="Terminal" />
+      <End Role="Transaction" EntitySet="Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TransactionDetail_Transaction" Association="Self.FK_TransactionDetail_Transaction">
+      <End Role="Transaction" EntitySet="Transaction" />
+      <End Role="TransactionDetail" EntitySet="TransactionDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TransactionHistory_TransactionHistory" Association="Self.FK_TransactionHistory_TransactionHistory">
+      <End Role="Transaction" EntitySet="Transaction" />
+      <End Role="TransactionHistory" EntitySet="TransactionHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Department" Association="Self.FK_User_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_SecurityQuestion" Association="Self.FK_User_SecurityQuestion">
+      <End Role="SecurityQuestion" EntitySet="SecurityQuestion" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserRole" Association="Self.FK_User_UserRole">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Zone" Association="Self.FK_User_Zone">
+      <End Role="Zone" EntitySet="Zone" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserManager_User" Association="Self.FK_UserManager_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserManager" EntitySet="UserManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserManager_User1" Association="Self.FK_UserManager_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserManager" EntitySet="UserManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VendorBalance_ServiceVendor" Association="Self.FK_VendorBalance_ServiceVendor">
+      <End Role="ServiceVendor" EntitySet="ServiceVendor" />
+      <End Role="VendorBalance" EntitySet="VendorBalance" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
